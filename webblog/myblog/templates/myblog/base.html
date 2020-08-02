@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    {% block title %}
+    <title></title>
+    {% endblock %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 <body>
@@ -41,14 +43,7 @@
         </form>
     </div>
     </nav>
-    <h1>Hello, Django</h1>
-    {% for i in context %}
-    <div> 
-        <h1>{{ i.title }}</h1>
-        <p>{{ i.content }}</p>
-        <p>{{ i.date_created }}</p>
-        <p>{{ i.date_updated }}</p>
-    </div>
-    {% endfor %}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

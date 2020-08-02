@@ -1,0 +1,35 @@
+{% extends "myblog/base.html" %}
+
+{% block title %}
+<title>Home</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+        {% for i in context %}
+    <div class="card text-center mb-5">
+        <div class="card-header">
+            <h1>{{ i.title }}</h1>
+        </div>
+
+        <div class="m-3">
+            <img src="{{ i.feature_image.url }}"
+                alt="feature_image"
+                width="450px"
+                height="400px">
+        </div>
+
+        <div class="card-body">
+            <p>{{ i.content }}</p>
+            <p>{{ i.date_created }}</p>
+            <p>{{ i.date_updated }}</p>
+        </div>
+
+        <div class="m-3">
+            <a class="btn btn-primary" href="#" role="button">Read more</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
