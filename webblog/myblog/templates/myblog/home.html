@@ -15,18 +15,18 @@
         <div class="m-3">
             <img src="{{ i.feature_image.url }}"
                 alt="feature_image"
-                width="450px"
-                height="400px">
+                width="350px"
+                height="300px">
         </div>
 
         <div class="card-body">
-            <p>{{ i.content }}</p>
-            <p>{{ i.date_created }}</p>
-            <p>{{ i.date_updated }}</p>
+            <p>{{ i.title }}</p>
         </div>
 
         <div class="m-3">
-            <a class="btn btn-primary" href="#" role="button">Read more</a>
+            <a class="btn btn-primary"
+               href="/post/{{ i.id }}"
+                role="button">Read more</a>
         </div>
     </div>
     {% endfor %}

@@ -6,20 +6,28 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="card">
+    {% if post %}
+    <div class="card text-center">
 
         <div class="card-header">
-            <h1></h1>
+            <h1>{{ post.title }}</h1>
         </div>
 
-        <div>
-            <img src="#" alt="">
+        <div class="m-3">
+            <img src="{{ post.feature_image.url }}"
+                alt="{{ post.title }}"
+                width="450px"
+                height="250px">
         </div>
 
         <div class="card-body">
+            <p>{{ post.content | safe }}</p>
+            <p>{{ post.date_created }}</p>
+            <p>{{ post.date_updated }}</p>
+            <p>Author: {{ post.author.name }}</p>
         </div>
-
     </div>
+    {% endif %}
 </div>
 
 {% endblock content %}

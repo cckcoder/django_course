@@ -1,15 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Post(models.Model):
-    title = models.CharField(max_length=120)
-    content = models.TextField()
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
-    feature_image = models.ImageField(upload_to="feature_photos")
-
-    def __str__(self):
-        return self.title
 
 class Author(models.Model):
     name = models.CharField(max_length=80)
@@ -19,3 +10,14 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+class Post(models.Model):
+    title = models.CharField(max_length=120)
+    content = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+    feature_image = models.ImageField(upload_to="feature_photos")
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
