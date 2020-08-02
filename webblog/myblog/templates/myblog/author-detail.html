@@ -1,0 +1,32 @@
+{% extends "myblog/base.html" %}
+
+{% block title %}
+<title>Profile: {{ author.name }}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    {% if author %}
+    <div class="card text-center">
+
+        <div class="card-header">
+            <h1>{{ author.name }}</h1>
+        </div>
+
+        <div class="m-3">
+            <img src="{{ author.profile_pic.url }}"
+                alt="{{ author.name }}"
+                width="450px"
+                height="250px">
+        </div>
+
+        <div class="card-body">
+            <p>{{ author.name }}</p>
+            <p>{{ author.age }}</p>
+            <p>{{ author.job }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}

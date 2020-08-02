@@ -16,3 +16,9 @@ def show_authors_table(request):
     obj = Author.objects.all()
 
     return render(request, 'myblog/authors.html', {'authors': obj})
+
+def show_author(request, id):
+    obj = Author.objects.get(id=id)
+
+    return render(request, 'myblog/author-detail.html', {'author': obj})
+

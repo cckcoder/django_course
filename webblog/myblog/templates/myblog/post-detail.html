@@ -24,7 +24,9 @@
             <p>{{ post.content | safe }}</p>
             <p>{{ post.date_created }}</p>
             <p>{{ post.date_updated }}</p>
-            <p>Author: {{ post.author.name }}</p>
+            <p>
+                Author: <a href="/author/{{ post.author.id }}" target="_blank">{{ post.author.name }}</a>
+            </p>
         </div>
     </div>
     {% endif %}
